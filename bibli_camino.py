@@ -198,9 +198,11 @@ def loadOpenResultFilter(self, filter_table_view, filter_attribute_table_model,
 #Fonction Open Layer Filter DoubleClick
 #==================================================
 def openLayerFilterDoubleClick(self, mySource,fluxTitre,fluxProvider, mRequest):
-                    
+    #QApplication.instance().setOverrideCursor(self.cursorImage)
+    QApplication.instance().setOverrideCursor(Qt.WaitCursor)                
     vlayer = QgsVectorLayer(mySource, fluxTitre, fluxProvider)
     if not vlayer.isValid():
+       QApplication.instance().setOverrideCursor(Qt.ArrowCursor)                
        zMessErrorLoadLayerTitre = QtWidgets.QApplication.translate("bibli_camino", "Warning !!", None)                          
        zMessErrorLoadLayerTraduction1 = QtWidgets.QApplication.translate("bibli_camino", "Layer loading :", None)
        zMessErrorLoadLayerTraduction2 = QtWidgets.QApplication.translate("bibli_camino", "Please check your connections.", None)       
@@ -212,15 +214,17 @@ def openLayerFilterDoubleClick(self, mySource,fluxTitre,fluxProvider, mRequest):
        vlayer.setSubsetString(mRequest)
        mCanvas = iface.mapCanvas()
        mCanvas.setExtent(vlayer.extent())
+       QApplication.instance().setOverrideCursor(Qt.ArrowCursor)                
     return
 
 #==================================================
 #Fonction Open Layer Filter SimpleClick
 #==================================================
 def openLayerFilterSimpleClick(self, mySource,fluxTitre,fluxProvider, mRequest):
-                    
+    QApplication.instance().setOverrideCursor(Qt.WaitCursor)                
     vlayer = QgsVectorLayer(mySource, fluxTitre, fluxProvider)
     if not vlayer.isValid():
+       QApplication.instance().setOverrideCursor(Qt.ArrowCursor)                
        zMessErrorLoadLayerTitre = QtWidgets.QApplication.translate("bibli_camino", "Warning !!", None)                          
        zMessErrorLoadLayerTraduction1 = QtWidgets.QApplication.translate("bibli_camino", "Layer loading :", None)
        zMessErrorLoadLayerTraduction2 = QtWidgets.QApplication.translate("bibli_camino", "Please check your connections.", None)       
@@ -233,6 +237,7 @@ def openLayerFilterSimpleClick(self, mySource,fluxTitre,fluxProvider, mRequest):
        vlayer.setSubsetString(mRequest)
        mCanvas = iface.mapCanvas()
        mCanvas.setExtent(vlayer.extent())
+       QApplication.instance().setOverrideCursor(Qt.ArrowCursor)                
     return
                 
 #==================================================
@@ -313,6 +318,16 @@ def FileExiste(FileName):
        ExisteFile = False
     return ExisteFile
 
+#==================================================
+#Fichier existe
+#==================================================
+def createFolder(mFolder):
+    try:
+       os.makedirs(mFolder)
+    except OSError:
+       pass
+    return mFolder
+              
 #==================================================
 def zMyFrenchMonth(zNumberMonth):
     aMyFrenchMonth = {1:"Janvier", 2:"Février", 3:"Mars",4:"Avril",5:"Mai",6:"Juin",7:"Juillet",8:"Août",9:"Septembre",10:"Octobre",11:"Novembre",12:"Décembre"}

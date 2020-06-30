@@ -35,6 +35,10 @@ class Ui_Dialog_Camino_onglet(object):
         Dialog.setWindowIcon(icon)
 
         #=====================================================
+        #Path user profil camino
+        self.initDirCaminoParam = QgsApplication.qgisSettingsDirPath().replace("\\","/") + "camino3param"
+     
+        #=====================================================
         #Image
         self.labelImage = QtWidgets.QLabel(Dialog)
         myPath = os.path.dirname(__file__)+"/icons/camino2.jpg";
@@ -46,16 +50,23 @@ class Ui_Dialog_Camino_onglet(object):
         
         #=====================================================
         #Param File URL
-        monFichierPath = os.path.join(os.path.dirname(__file__))
-        monFichierPath = monFichierPath.replace("\\","/") + "//urlcamino.par"
+        monFichierPath = createFolder(self.initDirCaminoParam)
+        monFichierPath = monFichierPath.replace("\\","/") + "\\urlcamino.par"
         self.monFichierPath = monFichierPath
 
         #=====================================================
         #Param File LOGIN
-        monFichierPathLoginCourriel = os.path.join(os.path.dirname(__file__))
-        monFichierPathLoginCourriel = monFichierPathLoginCourriel.replace("\\","/") + "//logincaminocourriel.par"
+        monFichierPathLoginCourriel = createFolder(self.initDirCaminoParam)
+        monFichierPathLoginCourriel = monFichierPathLoginCourriel.replace("\\","/") + "\\logincaminocourriel.par"
         self.monFichierPathLoginCourriel = monFichierPathLoginCourriel
+
         #=====================================================
+        #Image Cursor
+        myPathCursorImage = os.path.dirname(__file__)+"/icons/cursor3.jpg";
+        myPathCursorImage = myPathCursorImage.replace("\\","/");
+        self.cursorImage = QCursor(QPixmap(myPathCursorImage))
+        #=====================================================
+
         #ComboBox Adresse 
         self.labelAdresse = QtWidgets.QLabel(Dialog)
         self.labelAdresse.setGeometry(QtCore.QRect(20,14,100,18))

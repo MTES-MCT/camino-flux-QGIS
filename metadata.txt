@@ -1,13 +1,20 @@
 [general]
 name = CAMINO Mining titles and authorizations 
 description=CAMINO Mining titles and authorizations
-about=This plugin completes Camino's geographic flow supply service, le Cadastre Minier Numérique Ouvert (the Open Digital Mining Cadastre), a web application from the French Ministry of Ecological and Solidarity Transision.
+about=This plugin completes Camino's geographic flow supply service, the Open Digital Mining Cadastre, a web application from the French Ministry of Ecological and Solidarity Transision.
 category = Tools
-version=1.5
+version=1.5.1
 qgisMinimumVersion=3.0
 # Optional items:
 changelog:
     =======================================
+    ** 1.5.1 : Didier LECLERC CMSIG MTES-MCTRCT/SG/SNUM/UNI/DRC Site de Rouen
+               Version under Qgis 3.12
+       Change Url tracker
+	   Relocating parameter files under the user profile
+														   
+    =======================================
+    =======================================																	 								  					   							   
     ** 1.5.0 : Didier LECLERC CMSIG MTES-MCTRCT/SG/SNUM/UNI/DRC Site de Rouen
                Version under Qgis 3.12
        Changing the ihm (tabs) 
@@ -42,7 +49,7 @@ changelog:
  
 tags= CAMINO, Mining Titles, Authorizations
 homepage=https://camino.beta.gouv.fr
-tracker=camino@beta.gouv.fr
+tracker=https://github.com/MTES-MCT/camino-flux-QGIS/issues
 repository=https://github.com/MTES-MCT/camino-flux-QGIS
 icon=icons/camino.png 
 experimental=False

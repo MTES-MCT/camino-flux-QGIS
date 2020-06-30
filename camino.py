@@ -33,7 +33,7 @@ class MainPlugin(object):
      # Generation de la traduction selon la langue choisie   
 
   def initGui(self):
-       #Construction du menu
+     #Construction du menu
      self.menu=QMenu("CAMINO (mining titles) International")
      self.menu.setTitle(QtWidgets.QApplication.translate("camino_main", "CAMINO (mining titles) International"))
 

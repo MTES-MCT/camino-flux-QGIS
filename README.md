@@ -93,16 +93,19 @@ Camino API, le cadastre minier numérique ouvert
 [AGPL 3 ou plus récent](https://spdx.org/licenses/AGPL-3.0-or-later.html)
 
 ---           
-=================================================
+
 ## Technologies
 - [Python 3.x]
 
 ---           
 
 ## Environnement
- - Version de QGIS 3.12.0-București ( fonctionne en 3.x )
+ - Version de QGIS 3.14 PI ( fonctionne en 3.x )
  - Qt 5.11.2 
  - OS Version Windows 10 (10.0)
+
+## Suivi des anomalies
+ - url : https://github.com/MTES-MCT/camino-flux-QGIS/issues    
 
 ---
 
@@ -114,6 +117,11 @@ Camino API, le cadastre minier numérique ouvert
 ├── i18n                 # `fichiers des langues
 └── icons                # `icones de l'application, menu, barre d'outils, IHM`
     └── metier           # `icones de la boite de dialogue de filtre`
-└── requete              # `dossier par défaut de sauvegarde et de chargement des requetes (filtres)`
+    
+.                        # `profil utilisateur windows`
+│
+└── camino3param         # `dossier par défaut création / lecture des fichiers *.par (urlcamino.par / logincaminocourriel.par)`
+    └── requete          # `dossier par défaut de sauvegarde et de chargement des requetes (filtres)`
+   
 ```
 =================================================

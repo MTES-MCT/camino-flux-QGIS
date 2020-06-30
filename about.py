@@ -83,7 +83,7 @@ class Ui_Dialog(object):
         MonHtml += "p, li { white-space: pre-wrap; }\n"
         MonHtml += "</style></head><body style=\" font-family:\'Sans Serif\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
         MonHtml += "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:8pt;\"><span style=\" font-weight:600;\">"
-        mVERSION = " = version 1.5"
+        mVERSION = " = version 1.6"
         MonHtml1 = QtWidgets.QApplication.translate("camino_about", "CAMINO (mining titles)", None) 
         MonHtml1 += mVERSION
         MonHtml1 += "<br><br>"

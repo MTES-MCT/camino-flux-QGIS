@@ -262,7 +262,7 @@ def createIhmCritere(self) :
     #------  
     #Connections boutons filtre
     self.buttonFilterCritere.clicked.connect(lambda : genereFiltreUrl(self, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
-    self.buttonFilterSave.clicked.connect(lambda : saveRequestCritere([mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
+    self.buttonFilterSave.clicked.connect(lambda : saveRequestCritere(self, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
     self.buttonFilterLoad.clicked.connect(lambda : restoreRequestCritere(self, [mDicCaseDom, mDicCaseType, mDicCaseStatus,mDicCaseZoneLibre], 
                                                                                 mListCaseDom, mListCaseType, mListCaseStatus, mListZoneLibre))
     #------ Bouton multi filtre  
@@ -280,7 +280,7 @@ def restoreRequestCritere(self,mListDico, mListCaseDom, mListCaseType, mListCase
     urlCaseDico = [urlDom, urlType, urlStatus]
     urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substances", "references", "territoires"
     urlZoneLibreDico = [urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire]
-    mFileOpen = mOpenFileName()[0]
+    mFileOpen = mOpenFileName(self)[0]
 
     if mFileOpen != '' :
        #------------
@@ -375,7 +375,7 @@ def returnRequestCritere(mFileOpen, urlCaseDico, urlZoneLibreDico, carDebut, car
     return critDomDico, critTypeDico, critStatusDico, critZoneLibreDico      
 
 #============================================ 
-def saveRequestCritere(mListDico) : 
+def saveRequestCritere(self, mListDico) : 
     carDebut, carFin = '[', ']'
     mFileSaveInit = "CAM_" + time.strftime("%Y%m%d_%Hh%Mm%S") + ".camino"
     #------------
@@ -385,7 +385,7 @@ def saveRequestCritere(mListDico) :
     urlCaseDico = [urlDom, urlType, urlStatus]
     urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substances", "references", "territoires"
     urlZoneLibreDico = [urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire]
-    mFileSave = mSaveFileName(mFileSaveInit)[0]
+    mFileSave = mSaveFileName(self, mFileSaveInit)[0]
     
     if mFileSave != '' :
        if (len(returListDom) + len(returnListType) + len(returnListStatus) + len(returnListZoneLibre)) == 0 :
@@ -415,17 +415,17 @@ def saveRequestCritere(mListDico) :
     return
     
 #============================================ 
-def mOpenFileName():
+def mOpenFileName(self):
     #Ouverture de la boite de dialogue Fichiers
-    InitDir = os.path.dirname(__file__) + "//requete" 
+    InitDir = createFolder(self.initDirCaminoParam + "\\requete")
     TypeList = QtWidgets.QApplication.translate("bibli_ihm_camino", "Camino Request", None) + " (*.camino)"
     fileName = QFileDialog.getOpenFileName(None,QtWidgets.QApplication.translate("bibli_ihm_camino", "Camino Files :", None),InitDir,TypeList)
     return fileName
    
 #============================================ 
-def mSaveFileName(mFileSaveInit):
+def mSaveFileName(self, mFileSaveInit):
     #Sauvegarde de la boite de dialogue Fichiers
-    InitDir = os.path.dirname(__file__) + "//requete//" + mFileSaveInit
+    InitDir = createFolder(self.initDirCaminoParam + "\\requete\\") + mFileSaveInit 
     TypeList = QtWidgets.QApplication.translate("bibli_ihm_camino", "Camino Request", None) + " (*.camino)"
     fileName = QFileDialog.getSaveFileName(None,QtWidgets.QApplication.translate("bibli_ihm_camino", "Camino Files :", None),InitDir,TypeList)
     return fileName
@@ -490,10 +490,11 @@ def genereFiltreUrl(self, mListDico) :
              urlMySourceLogin = mySource[0:len(mFindCaminoAdresse)] + idenCourriel + mSepMdp + mdpCourriel + mSepAdresse + mySource[len(mFindCaminoAdresse):]
              mySource = urlMySourceLogin
        #============
-
+       QApplication.instance().setOverrideCursor(Qt.WaitCursor)
        vlayer = QgsVectorLayer(mySource, fluxTitre, fluxProvider)
 
        if not vlayer.isValid():
+          QApplication.instance().setOverrideCursor(Qt.ArrowCursor)
           zMessErrorLoadLayerTitre = QtWidgets.QApplication.translate("bibli_ihm_camino", "Warning !!", None)                          
           zMessErrorLoadLayerTraduction1 = QtWidgets.QApplication.translate("bibli_ihm_camino", "Layer loading :", None)
           zMessErrorLoadLayerTraduction2 = QtWidgets.QApplication.translate("bibli_ihm_camino", "Please check your connections.", None)       
@@ -510,6 +511,7 @@ def genereFiltreUrl(self, mListDico) :
            
           vlayer = QgsVectorLayer(mySource, fluxTitre, fluxProvider)
           if not vlayer.isValid():
+             QApplication.instance().setOverrideCursor(Qt.ArrowCursor)
              zMessErrorLoadLayerTitre = QtWidgets.QApplication.translate("bibli_ihm_camino", "Warning !!", None)                          
              zMessErrorLoadLayerTraduction1 = QtWidgets.QApplication.translate("bibli_ihm_camino", "Layer loading :", None)
              zMessErrorLoadLayerTraduction2 = QtWidgets.QApplication.translate("bibli_ihm_camino", "No results.", None)       
@@ -518,7 +520,6 @@ def genereFiltreUrl(self, mListDico) :
           else :
              #------     
              fluxAdresse = mySource
-             print(fluxTitre)
              #------     
              self.resultTextEdit.clear()
              zMess = self.zMess
@@ -529,7 +530,9 @@ def genereFiltreUrl(self, mListDico) :
              self.resultTextEdit.setText(zMess)       
              #------  
              self.mySource,self.fluxTitre,self.fluxProvider = mySource,fluxTitre,fluxProvider
+             QApplication.instance().setOverrideCursor(Qt.WaitCursor)
              openLayer(self, self.mySource,self.fluxTitre,self.fluxProvider)               
+             QApplication.instance().setOverrideCursor(Qt.ArrowCursor)
              
     #=============
     return
