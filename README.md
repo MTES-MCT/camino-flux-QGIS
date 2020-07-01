@@ -10,11 +10,14 @@ Ce plugin simplifie l'import de ces flux GeoJSON dans QGIS.
 
 ## Installation
 
-### Via le dépôt du Ministère
+### Via les dépôts
 
 1. Configurer les dépôts d'extensions
 
-Dans le menu _Extension_, sélectionner _Installer / Gérer les extensions_, puis l'onglet _Paramètres_, ajouter l'url suivante `http://piece-jointe-carto.developpement-durable.gouv.fr/NAT002/QGIS/plugins/plugins.xml`.
+Dans le menu _Extension_, sélectionner _Installer / Gérer les extensions_, puis l'onglet _Paramètres_, ajouter l'url suivante 
+
+- `http://piece-jointe-carto.developpement-durable.gouv.fr/NAT002/QGIS/plugins/plugins.xml` pour accéder au dépôt du Ministère
+- `https://plugins.qgis.org/plugins/plugins.xml` pour accéder au dépôt officiel des plugins QGIS
 
 2. Installer et mettre à jour l'extension
 
@@ -24,9 +27,9 @@ Dans le menu _Extension_, sélectionner _Installer / Gérer les extensions, puis
 
 1. Télécharger et décomprésser le [zip du plugin](https://github.com/MTES-MCT/camino-flux-QGIS/releases).
 2. Selon la version de QGIS utilisée, copier le contenu :
-  - pour la version communautaire : `MonProfilAMoi\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\camino3`
-  - pour la version QGIS packagée MTES : `C:\ProgramFiles\QGIS\profil\python\camino3`
 
+- pour la version communautaire : `MonProfilAMoi\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\camino3`
+- pour la version QGIS packagée MTES : `C:\ProgramFiles\QGIS\profil\python\camino3`
 
 ---
 
