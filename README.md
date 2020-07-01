@@ -10,14 +10,14 @@ Ce plugin simplifie l'import de ces flux GeoJSON dans QGIS.
 
 ## Installation
 
-### Via les dépôts
+### Via un dépôt
 
-1. Configurer les dépôts d'extensions
+1. Configurer un dépôt d'extensions
 
 Dans le menu _Extension_, sélectionner _Installer / Gérer les extensions_, puis l'onglet _Paramètres_, ajouter l'url suivante 
 
-- `http://piece-jointe-carto.developpement-durable.gouv.fr/NAT002/QGIS/plugins/plugins.xml` pour accéder au dépôt du Ministère
-- `https://plugins.qgis.org/plugins/plugins.xml` pour accéder au dépôt officiel des plugins QGIS
+- dépôt du ministère : `http://piece-jointe-carto.developpement-durable.gouv.fr/NAT002/QGIS/plugins/plugins.xml`
+- dépôt officiel QGIS : `https://plugins.qgis.org/plugins/plugins.xml`
 
 2. Installer et mettre à jour l'extension
 
