@@ -281,7 +281,7 @@ def returnAndSaveDialogParam(self, mAction):
 #Lecture du fichier paramètre
 #==================================================
 def loadFichierParam(monFichierParam):
-    fluxAdresse, fluxTitre, fluxProvider = 'https://api.camino.beta.gouv.fr/titres?format=geojson', 'Cadastre miniers api', 'ogr'
+    fluxAdresse, fluxTitre, fluxProvider = 'https://api.camino.beta.gouv.fr/titres_qgis?format=geojson', 'Cadastre miniers api', 'ogr'
     carDebut, carFin = '[', ']'
     listWithValue = [fluxAdresse, fluxTitre, fluxProvider]
     if not FileExiste(monFichierParam) :
