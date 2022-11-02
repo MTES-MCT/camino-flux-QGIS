@@ -266,7 +266,7 @@ class Ui_Dialog_Camino_onglet(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QtWidgets.QApplication.translate("camino_onglet_ui", "CAMINO (mining titles) International...", None) + "  (" + str(bibli_ihm_camino.returnVersion()) + ")")
         self.labelCourriel.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "mail address : ", None))
-        self.labelMdpCourriel.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "Password : ", None))
+        self.labelMdpCourriel.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "Token : ", None))
         self.helpButton.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "Help", None))
         self.okhButton.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "Close", None))
         self.buttonFilter.setText(QtWidgets.QApplication.translate("camino_onglet_ui", "multi-line filter", None))

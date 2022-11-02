@@ -241,7 +241,7 @@ def createIhmCritere(self) :
     _sizeHeigthButton = 23  
     #boutons territoires 
     self.buttonTout = QtWidgets.QPushButton(self.groupBoxFiltre)
-    self.buttonTout.setGeometry(QtCore.QRect((1 * _ecartButton) + (0 * _sizeWidthButton), _yButton, _sizeWidthButton, _sizeHeigthButton))
+    self.buttonTout.setGeometry(QtCore.QRect(int((1 * _ecartButton) + (0 * _sizeWidthButton)), int(_yButton), int(_sizeWidthButton), int(_sizeHeigthButton)))
     self.buttonTout.setObjectName("buttonTout")
     self.buttonTout.setText(QtWidgets.QApplication.translate("bibli_ihm_camino", self.ToutLibelle, None))
     self.buttonTout.setVisible(True)
@@ -249,7 +249,7 @@ def createIhmCritere(self) :
     self.buttonTout.clicked.connect(lambda : genereFiltreUrlTerritoires(self, self.buttonTout, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
     #-
     self.buttonMetropole = QtWidgets.QPushButton(self.groupBoxFiltre)
-    self.buttonMetropole.setGeometry(QtCore.QRect((2 * _ecartButton) + (1 * _sizeWidthButton), _yButton, _sizeWidthButton, _sizeHeigthButton))
+    self.buttonMetropole.setGeometry(QtCore.QRect(int((2 * _ecartButton) + (1 * _sizeWidthButton)), int(_yButton), int(_sizeWidthButton), int(_sizeHeigthButton)))
     self.buttonMetropole.setObjectName("buttonMetropole")
     self.buttonMetropole.setText(QtWidgets.QApplication.translate("bibli_ihm_camino", self.MetropoleLibelle, None))
     self.buttonMetropole.setVisible(True)
@@ -257,7 +257,7 @@ def createIhmCritere(self) :
     self.buttonMetropole.clicked.connect(lambda : genereFiltreUrlTerritoires(self, self.buttonMetropole, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
     #-
     self.buttonGuyane = QtWidgets.QPushButton(self.groupBoxFiltre)
-    self.buttonGuyane.setGeometry(QtCore.QRect((3 * _ecartButton) + (2 * _sizeWidthButton) , _yButton, _sizeWidthButton, _sizeHeigthButton))
+    self.buttonGuyane.setGeometry(QtCore.QRect(int((3 * _ecartButton) + (2 * _sizeWidthButton)) , int(_yButton), int(_sizeWidthButton), int(_sizeHeigthButton)))
     self.buttonGuyane.setObjectName("buttonGuyane")
     self.buttonGuyane.setText(QtWidgets.QApplication.translate("bibli_ihm_camino", self.GuyaneLibelle, None))
     self.buttonGuyane.setVisible(True)
@@ -265,7 +265,7 @@ def createIhmCritere(self) :
     self.buttonGuyane.clicked.connect(lambda : genereFiltreUrlTerritoires(self, self.buttonGuyane, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
     #-
     self.buttonOceanIndien = QtWidgets.QPushButton(self.groupBoxFiltre)
-    self.buttonOceanIndien.setGeometry(QtCore.QRect((4 * _ecartButton) + (3 * _sizeWidthButton) , _yButton, _sizeWidthButton, _sizeHeigthButton))
+    self.buttonOceanIndien.setGeometry(QtCore.QRect(int((4 * _ecartButton) + (3 * _sizeWidthButton)) , int(_yButton), int(_sizeWidthButton), int(_sizeHeigthButton)))
     self.buttonOceanIndien.setObjectName("buttonOceanIndien")
     self.buttonOceanIndien.setText(QtWidgets.QApplication.translate("bibli_ihm_camino", self.OceanIndienLibelle, None))
     self.buttonOceanIndien.setVisible(True)
@@ -273,7 +273,7 @@ def createIhmCritere(self) :
     self.buttonOceanIndien.clicked.connect(lambda : genereFiltreUrlTerritoires(self, self.buttonOceanIndien, [mDicCaseDom, mDicCaseType, mDicCaseStatus, mDicCaseZoneLibre]))
     #-
     self.buttonAntilles = QtWidgets.QPushButton(self.groupBoxFiltre)
-    self.buttonAntilles.setGeometry(QtCore.QRect((5 * _ecartButton) + (4 * _sizeWidthButton) , _yButton, _sizeWidthButton, _sizeHeigthButton))
+    self.buttonAntilles.setGeometry(QtCore.QRect(int((5 * _ecartButton) + (4 * _sizeWidthButton)) , int(_yButton), int(_sizeWidthButton), int(_sizeHeigthButton)))
     self.buttonAntilles.setObjectName("buttonAntilles")
     self.buttonAntilles.setText(QtWidgets.QApplication.translate("bibli_ihm_camino", self.AntillesLibelle, None))
     self.buttonAntilles.setVisible(True)
@@ -547,7 +547,7 @@ def genereFiltreUrlTerritoires(self, mButton, mListDico) :
     if mContinue :
        #Charge le flux camino teste si la couche t valide et après le résultat
        #Gestion des territoires                                                              
-       _urlDefaut = self.UrlcaminoDefaut
+       _urlDefaut = self.UrlcaminoDefaut.replace("/titres", "/titres_qgis" ) if self.radioOptionMdp3.isChecked() else self.UrlcaminoDefaut
        if mButton.objectName()   == "buttonTout" :
           mySource  = _urlDefaut   
           fluxTitre = self.ToutLibelle
@@ -843,6 +843,6 @@ def mGestionLoginCourriel(mType, mFile, mIden) :
                              mIden = slistWithValue
        return mIden
 #==================================================
-def returnVersion() : return "version 1.6.1"
+def returnVersion() : return "version 1.7.0"
 #============================================ 
          
