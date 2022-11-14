@@ -39,7 +39,8 @@ class Ui_Dialog_Camino_onglet(object):
         self.initDirCaminoParam = QgsApplication.qgisSettingsDirPath().replace("\\","/") + "camino3param"
         mDic_LH = bibli_camino.returnAndSaveDialogParam(self, "Load")
         self.mDic_LH = mDic_LH      
-        self.UrlcaminoDefaut     = self.mDic_LH["URLCAMINO"]
+        self.UrlcaminoPublic     = self.mDic_LH["URLCAMINOPUBLIC"]
+        self.UrlcaminoPrive      = self.mDic_LH["URLCAMINOPRIVE"]
         self.ToutLibelle         = self.mDic_LH["TOUTLIBELLE"]
         self.ToutCoord           = self.mDic_LH["TOUTCoord"]
         self.MetropoleLibelle    = self.mDic_LH["METROPOLELIBELLE"]

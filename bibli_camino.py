@@ -253,7 +253,9 @@ def returnAndSaveDialogParam(self, mAction):
        # liste des Paramétres UTILISATEURS
        mSettings.beginGroup("Generale")
        #Ajouter si autre param
-       mDicUserSettings["URLCAMINO"]               = "https://api.camino.beta.gouv.fr/titres_qgis?format=geojson"          
+
+       mDicUserSettings["URLCAMINOPUBLIC"]         = "https://api.camino.beta.gouv.fr/titres?format=geojson"          
+       mDicUserSettings["URLCAMINOPRIVE"]          = "https://api.camino.beta.gouv.fr/titres_qgis?format=geojson"          
        mDicUserSettings["TOUTLIBELLE"]             = "Tout Afficher"
        mDicUserSettings["TOUTCoord"]               = ""
        mDicUserSettings["METROPOLELIBELLE"]        = "Métropole"

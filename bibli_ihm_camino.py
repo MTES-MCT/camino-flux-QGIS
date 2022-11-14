@@ -547,7 +547,8 @@ def genereFiltreUrlTerritoires(self, mButton, mListDico) :
     if mContinue :
        #Charge le flux camino teste si la couche t valide et après le résultat
        #Gestion des territoires                                                              
-       _urlDefaut = self.UrlcaminoDefaut
+
+       _urlDefaut = self.UrlcaminoPrive if self.radioOptionMdp3.isChecked() else self.UrlcaminoPublic
        if mButton.objectName()   == "buttonTout" :
           mySource  = _urlDefaut   
           fluxTitre = self.ToutLibelle
@@ -843,6 +844,6 @@ def mGestionLoginCourriel(mType, mFile, mIden) :
                              mIden = slistWithValue
        return mIden
 #==================================================
-def returnVersion() : return "version 1.7.0"
+def returnVersion() : return "version 1.7.1"
 #============================================ 
          
