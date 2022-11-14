@@ -843,6 +843,6 @@ def mGestionLoginCourriel(mType, mFile, mIden) :
                              mIden = slistWithValue
        return mIden
 #==================================================
-def returnVersion() : return "version 1.6.1"
+def returnVersion() : return "version 1.7.0"
 #============================================ 
          

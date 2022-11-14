@@ -8,7 +8,7 @@ Ce plugin simplifie l'import de ces flux GeoJSON dans QGIS.
 
 ---           
 ## version
-- [1.6.0]
+- [1.7.0]
 
 ---   
 
