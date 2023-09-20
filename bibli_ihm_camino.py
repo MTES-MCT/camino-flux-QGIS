@@ -512,8 +512,8 @@ def genereFiltreUrlTerritoires(self, mButton, mListDico) :
        urlCaseDico = [urlDom, urlType, urlStatus]
        # Pour infos Mapping     Corresponds aux attributs
        # "noms", "entreprises",     "substances", "references", "territoires"
-       # "nom",  "titulaires_noms", "substances", "references", "régions"
-       urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substances", "references", "territoires"
+       # "nom",  "titulaires_noms", "substancesIds", "references", "régions"
+       urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substancesIds", "references", "territoires"
        urlZoneLibreDico = [urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire]
        urlCaseOk, mFirst, mOpe = "", True, ""
        #Pour les CheckBox
@@ -639,7 +639,7 @@ def genereFiltreUrl(self, mListDico) :
        # Pour infos Mapping     Corresponds aux attributs
        # "noms", "entreprises",     "substances", "references", "territoires"
        # "nom",  "titulaires_noms", "substances", "references", "régions"
-       urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substances", "references", "territoires"
+       urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire = "noms", "entreprises", "substancesIds", "references", "territoires"
        urlZoneLibreDico = [urlNom, urlEntreprise, urlSubstance, urlReference, urlTerritoire]
        urlCaseOk, mFirst, mOpe = "", True, ""
        #Pour les CheckBox
